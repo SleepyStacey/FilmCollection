@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Here is the list of all the movies that have been entered so far.";
+}
+
+@model IEnumerable<FilmCollection.Models.Response>
+
+<!--the list page-->
+<div>
+    <!--the table-->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (FilmCollection.Models.Response responses in Model)
+            {
+                @if (responses.Title != "Independence Day")
+                {
+                    <tr>
+                        <td>@responses.Category</td>
+                        <td>@responses.Title</td>
+                        <td>@responses.Year</td>
+                        <td>@responses.Director</td>
+                        <td>@responses.Rating</td>
+                        <td>@responses.Edited</td>
+                        <td>@responses.LentTo </td>
+                        <td>@responses.Notes</td>
+                        <td>
+                            <form id="E-@responses.SubmissionId" asp-action="EditForm" method="post">
+                                <input type="hidden" asp-for="@responses.SubmissionId" name="editId" />
+                                <button type="submit" class="btn-sm btn-info">Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form id="D-@responses.SubmissionId" asp-action="Delete" method="post">
+                                <input type="hidden" asp-for="@responses.SubmissionId" name="deletionId" />
+                                <button type="submit" class="btn-sm btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

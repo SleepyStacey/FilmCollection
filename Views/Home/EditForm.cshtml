@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "You Can Edit the Info of Your Movie Here";
+}
+<div class="text-center">
+    <h3>Edit a Film</h3>
+</div>
+
+
+@model FilmCollection.Models.Response
+
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="SubmissionId" value="@ViewBag.movieToEdit.SubmissionId" />
+    <div>
+        <label asp-for="Category">Category:</label>
+        <input asp-for="Category" value="@ViewBag.movieToEdit.Category" />
+    </div>
+    <div>
+        <label asp-for="Title">Title:</label>
+        <input asp-for="Title" value="@ViewBag.movieToEdit.Title" />
+    </div>
+    <div>
+        <label asp-for="Year">Year:</label>
+        <input asp-for="Year" value="@ViewBag.movieToEdit.Year" />
+    </div>
+    <div>
+        <label asp-for="Director">Director:</label>
+        <input asp-for="Director" value="@ViewBag.movieToEdit.Director" />
+    </div>
+    <div>
+        <label asp-for="Rating">Rating:</label>
+        <select asp-for="Rating">
+            <!option @if (ViewBag.movieToEdit.Rating == "ALL") { <text> selected="selected" </text> } value="">ALL</!option>
+            <!option @if (ViewBag.movieToEdit.Rating == "G") { <text> selected="selected" </text> } value="G">G</!option>
+            <!option @if (ViewBag.movieToEdit.Rating == "PG") { <text> selected="selected" </text> } value="PG">PG</!option>
+            <!option @if (ViewBag.movieToEdit.Rating == "PG-13") { <text> selected="selected" </text> } value="PG-13">PG-13</!option>
+            <!option @if (ViewBag.movieToEdit.Rating == "R") { <text> selected="selected" </text> } value="R">R</!option>
+
+        </select>
+    </div>
+
+
+    <div>
+        <label asp-for="Edited">Edited:</label>
+        <select asp-for="Edited">
+            <!option value="false">Select an option</!option>
+            <!option @if (ViewBag.movieToEdit.Edited == false) { <text> selected="selected" </text> } value="false">No</!option>
+            <!option @if (ViewBag.movieToEdit.Edited == true) { <text> selected="selected" </text> } value="true">Yes</!option>
+        </select>
+
+    </div>
+    <div>
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo" value="@ViewBag.movieToEdit.LentTo" />
+    </div>
+    <div>
+        <label asp-for="Notes">Notes:</label>
+        <input asp-for="Notes" value="@ViewBag.movieToEdit.Notes" />
+    </div>
+
+    <!--button-->
+    <div>
+        <button type="submit" id="submitButton" class="btn-success">Submit Your Edits</button>
+        <div asp-validation-summary="All"></div>
+    </div>
+
+</form>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Film Collection</title>
+    <!--link to style sheet-->
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+
+
+    <!--nav-->
+    <header>
+        <!--the shared navigation-->
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">FILM COLLECTION</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="MyPodcasts">My Podcasts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="FilmApplication">Film Application</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="List">Film List</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <br />
+    <br />
+    <!--title-->
+    <h1 class="text-center">@ViewBag.Title</h1>
+
+    @RenderBody()
+
+
+
+    <br />
+    <br />
+
+    <!--footer-->
+    <footer class="bg-dark text-center footer text-muted">
+        <div class="container">
+            &copy; 2021 - Assignment9 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
