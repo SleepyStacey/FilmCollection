@@ -55,14 +55,19 @@
     <br />
 
     <div>
+        <label asp-for="LentTo">Lent To:</label>
+        <input asp-for="LentTo" />
+    </div>
+
+    <div>
         <label>Notes:</label>
         <input />
     </div>
     <br />
 
     <div>
-    <button type="submit" id="submitButton" class="btn-success">Submit the Film</button>
-    <div asp-validation-summary="All"></div>
+        <button type="submit" id="submitButton" class="btn-success">Submit the Film</button>
+        <div asp-validation-summary="All"></div>
     </div>
 
 </form>
